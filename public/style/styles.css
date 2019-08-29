@@ -1,0 +1,25 @@
+#header {height:300px;
+background-image:url("images/managerview1.jpg");
+background-position: top;
+}
+#title{
+  text-align:center;
+}
+.column {
+  float: left;
+  width: 50%;
+  padding:10px;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.fa-chevron-left{
+position:inherit;
+z-index:-1;
+font-size:2em;
+margin-top:0;
+}
