@@ -15,7 +15,7 @@ An interactive website for a sushi restaurant that allows multiple users to plac
 - GET and PUT routes tied to front end.  
 - create the menu form
 - user info form (name, address, credit card)
-- Authentication?
+- Authentication? [I'm a link](https://www.npmjs.com/package/passport)
 - Manager view with RUD
 
 
