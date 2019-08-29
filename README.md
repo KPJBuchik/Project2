@@ -33,6 +33,6 @@ An interactive website for a sushi restaurant that allows multiple users to plac
 - 
 
 ## PDF Prototype of Project
-![Splash](C:\Users\pedro\code\Projects\Project2\AdobeXD\Splash.jpg)
-![Menu](AdobeXD\Home.jpg)
-![View](AdobeXD\View.jpg)
+![alt text](AdobeXD\Splash.jpg)
+![alt text](AdobeXD\Home.jpg)
+![alt text](AdobeXD\View.jpg)
