@@ -31,3 +31,6 @@ An interactive website for a sushi restaurant that allows multiple users to plac
 ## Kevin
 - set up database, sequelize 
 - 
+
+## PDF Prototype of Project
+![Alt Text](C:\Users\pedro\Code\Projects\Project2\AdobeXD)
