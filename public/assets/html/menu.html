@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../css/styles.css" type="text/css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- The link below is for a reset.css file in case we want to use it. -->
+    <!-- <link rel="stylesheet" href="../css/reset.css" type="text/css"/> -->
+    <link rel="icon" type="image/png" sizes="16x16" href="../../images/favicon.ico">
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <title>Menu</title>
+</head>
+<body>
+    <img id="realSushi" src="../../images/option_sushi.jpg" alt="sushi_img">
+    <h1>Menu</h1>
+    <form>
+
+        <div class="form-group myfood">
+            <strong><p>Tamago egg</p></strong>
+            <p>Price: $10.00</p> 
+            <div class='form-group myform' method='POST' action='#'>
+                <p>Quantity</p>
+                <input type='button' value='-' class='qtyminus' field='quantity' />
+                <input id="tamagoEgg" type='text' name='quantity' value='0' class='qty' />
+                <input type='button' value='+' class='qtyplus' field='quantity' />
+            </div>
+            <button data-name="Tamago_Egg" data-price="10" for="tamagoEgg">Order</button>
+        </div>
+
+        <div class="form-group myfood">
+            <strong><p>California MAKI Roll</p></strong>
+            <p>Price: $10.00</p> 
+            <div class='form-group myform' method='POST' action='#'>
+                <p>Quantity</p>
+                <input type='button' value='-' class='qtyminus' field='quantity' />
+                <input id="caliRoll" type='text' name='quantity' value='0' class='qty' />
+                <input type='button' value='+' class='qtyplus' field='quantity' />
+            </div>
+            <button data-name="california_roll" data-price="10" for="caliRoll">Order</button>
+        </div>
+
+        <div class="form-group myfood">
+            <strong><p>Futomaki thick roll</p></strong>
+            <p>Price: $10.00</p> 
+            <div class='form-group myform' method='POST' action='#'>
+                <p>Quantity</p>
+                <input type='button' value='-' class='qtyminus' field='quantity' />
+                <input id="futomakiRoll" type='text' name='quantity' value='0' class='qty' />
+                <input type='button' value='+' class='qtyplus' field='quantity' />
+            </div>
+            <button data-name="futomaki_roll" data-price="10" for="futomakiRoll">Order</button>
+        </div>
+
+        <div class="form-group myfood">
+                <strong><p>TEKKA tuna Roll</p></strong>
+                <p>Price: $10.00</p> 
+                <div class='form-group myform' method='POST' action='#'>
+                    <p>Quantity</p>
+                    <input type='button' value='-' class='qtyminus' field='quantity' />
+                    <input id="tekkaRoll" type='text' name='quantity' value='0' class='qty' />
+                    <input type='button' value='+' class='qtyplus' field='quantity' />
+                </div>
+                <button data-name="tekka_roll" data-price="10" for="tekkaRoll">Order</button>
+            </div>
+
+            <div class="form-group myfood">
+                <strong><p>Ikura salmon roe</p></strong>
+                <p>Price: $10.00</p> 
+                <div class='form-group myform' method='POST' action='#'>
+                    <p>Quantity</p>
+                    <input type='button' value='-' class='qtyminus' field='quantity' />
+                    <input id="ikuraRoe" type='text' name='quantity' value='0' class='qty' />
+                    <input type='button' value='+' class='qtyplus' field='quantity' />
+                </div>
+                <button data-name="ikura_roe" data-price="10" for="ikuraRoe">Order</button>
+            </div>
+
+            <div class="form-group myfood">
+                <strong><p>Uni sea urchin</p></strong>
+                <p>Price: $10.00</p> 
+                <div class='form-group myform' method='POST' action='#'>
+                    <p>Quantity</p>
+                    <input type='button' value='-' class='qtyminus' field='quantity' />
+                    <input id="uniSea" type='text' name='quantity' value='0' class='qty' />
+                    <input type='button' value='+' class='qtyplus' field='quantity' />
+                    </div>
+                    <button data-name="uni_sea" data-price="10" for="uniSea">Order</button>
+                </div>
+            
+            <div class="form-group myfood">
+                <strong><p>SAKE salmon</p></strong>
+                <p>Price: $10.00</p> 
+                <div class='form-group myform' method='POST' action='#'>
+                    <p>Quantity</p>
+                    <input type='button' value='-' class='qtyminus' field='quantity' />
+                    <input id="sakeSalmon" type='text' name='quantity' value='0' class='qty' />
+                    <input type='button' value='+' class='qtyplus' field='quantity' />
+                </div>
+                <button data-name="sake_salmon" data-price="10" for="sakeSalmon">Order</button>
+            </div>
+
+            <div class="form-group myfood">
+                <strong><p>Saba mackerel</p></strong>
+                <p>Price: $10.00</p> 
+                <div class='form-group myform' method='POST' action='#'>
+                    <p>Quantity</p>
+                    <input type='button' value='-' class='qtyminus' field='quantity' />
+                    <input id="sabaMackerel" type='text' name='quantity' value='0' class='qty' />
+                    <input type='button' value='+' class='qtyplus' field='quantity' />
+                </div>
+                <button data-name="saba_mackerel" data-price="10" for="sabaMackerel">Order</button>
+            </div>
+
+            <div class="form-group myfood">
+                <strong><p>Maguro tuna</p></strong>
+                <p>Price: $10.00</p> 
+                <div class='form-group myform' method='POST' action='#'>
+                    <p>Quantity</p>
+                    <input type='button' value='-' class='qtyminus' field='quantity' />
+                    <input id="maguroTuna" type='text' name='quantity' value='0' class='qty' />
+                    <input type='button' value='+' class='qtyplus' field='quantity' />
+                </div>
+                <button data-name="maguro_tuna" data-price="10" for="maguroTuna">Order</button>
+            </div>
+
+            <div class="form-group myfood">
+                <strong><p>Hamachi yellowtail</p></strong>
+                <p>Price: $10.00</p> 
+                <div class='form-group myform' method='POST' action='#'>
+                    <p>Quantity</p>
+                    <input type='button' value='-' class='qtyminus' field='quantity' />
+                    <input id="hamachiTail" type='text' name='quantity' value='0' class='qty' />
+                    <input type='button' value='+' class='qtyplus' field='quantity' />
+                </div>
+                <button data-name="hamachi_tail" data-price="10" for="hamachiTail">Order</button>
+            </div>
+
+            <div class="form-group myfood">
+                <strong><p>EBI shrimp</p></strong>
+                <p>Price: $10.00</p> 
+                <div class='form-group myform' method='POST' action='#'>
+                    <p>Quantity</p>
+                    <input type='button' value='-' class='qtyminus' field='quantity' />
+                    <input id="ebiShrimp" type='text' name='quantity' value='0' class='qty' />
+                    <input type='button' value='+' class='qtyplus' field='quantity' />
+                </div>
+                <button data-name="ebi_shrimp" data-price="10" for="ebiShrimp">Order</button>
+            </div>
+
+            <div class="form-group myfood">
+                <strong><p>ANAGO eel</p></strong>
+                <p>Price: $10.00</p> 
+                <div class='form-group myform' method='POST' action='#'>
+                    <p>Quantity</p>
+                    <input type='button' value='-' class='qtyminus' field='quantity' />
+                    <input id="anagoEel" type='text' name='quantity' value='0' class='qty' />
+                    <input type='button' value='+' class='qtyplus' field='quantity' />
+                </div>
+                <button data-name="anago_eel" data-price="10" for="anagoEel">Order</button>
+            </div>
+    
+    
+    </form>
+    <img id="animeSushi" src="../../images/sushi_names.jpg" alt="anime_sushi">
+    <footer id="footer1">
+        <h3>Copyright ©</h3>
+    </footer>
+    <script src="../js/index.js"></script>
+</body>
+</html>
