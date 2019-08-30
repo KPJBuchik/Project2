@@ -3,23 +3,28 @@
 
 
 <h1 id="title">Order Queue</h1>
+
 <div class="row">
   {{#each order}}
     {{#unless fulfilled}}
       {{> partials/order-block fulfilled=false}}
     {{/unless}}
   {{/each}}
+
 </div>
+<hr>
+
+<h1 id="fulfilled">Past Orders</h1>
 <div class="row">
   {{#each order}}
     {{#unless fulfilled}}
-      {{> partials/order-block fulfilled=true}}
+      {{> partials/order-delete fulfilled=true}}
     {{/unless}}
   {{/each}}
 </div>
 
 
 
-
+<footer>footer</footer>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="/js/index.js"></script>
