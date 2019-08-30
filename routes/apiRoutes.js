@@ -1,6 +1,30 @@
 var db = require("../models");
 
 module.exports = function(app) {
+app.get("/", function(req,res) {
+db.Order.findAll({}).then(function(data){
+var order={
+  order:data
+}
+console.log(order);
+res.render(order);
+
+
+})
+
+
+})
+
+
+
+
+
+
+
+
+
+
+
   // Get all examples
   app.get("/api/users", function(req, res) {
     db.User.findAll({}).then(function(dbUsers) {
@@ -19,6 +43,8 @@ module.exports = function(app) {
       res.json(dbItems)
     });
   });
+
+
 
 
 }

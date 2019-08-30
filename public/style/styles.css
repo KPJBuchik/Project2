@@ -13,7 +13,6 @@ border-bottom:solid darkblue;
   width: 50%;
   padding:10px;
 }
-body{background-color:wheat;}
 .row:after {
   content: "";
   display: table;
