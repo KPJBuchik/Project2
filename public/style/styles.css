@@ -34,7 +34,9 @@ footer {margin-bottom:0;
   bottom:0;
   height:20px;
   width:100%;
-  background-color:darkblue;}
+  background-color:darkblue;
+  color:white;
+  text-align:center;}
 
 
 #fulfilled{text-align:center;}
