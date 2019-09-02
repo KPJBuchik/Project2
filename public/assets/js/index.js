@@ -1,18 +1,48 @@
-var menu = [
+var menu = 
   {
-    item: "hamachi yellowtail",
-    price: "10"
-  }
-];
+    tamago_egg: 10,
+    california_roll: 10,
+    futomaki_roll: 10,
+    tekka_roll: 10,
+    ikura_roe: 10,
+    uni_sea: 10,
+    sake_salmon: 10,
+    saba_mackerel: 10,
+    maguro_tuna: 10,
+    hamachi_yellowtail: 10,
+    ebi_shrimp: 10,
+    anago_eel: 10,
+  };
+
 
 $("#submit").on("click", function(e){
   e.preventDefault();
   console.log("order submitted");
   var tamago_egg = $('input[name=tamago_egg]').val();
   var california_roll = $('input[name=california_roll]').val();
+  var futomaki_roll = $('input[name=futomaki_roll]').val();
+  var tekka_roll = $('input[name=tekka_roll]').val();
+  var ikura_roe = $('input[name=ikura_roe]').val();
+  var uni_sea = $('input[name=uni_sea]').val();
+  var sake_salmon = $('input[name=sake_salmon]').val();
+  var saba_mackerel = $('input[name=saba_mackerel]').val();
+  var maguro_tuna = $('input[name=maguro_tuna]').val();
+  var hamachi_yellowtail = $('input[name=hamachi_yellowtail]').val();
+  var ebi_shrimp = $('input[name=ebi_shrimp]').val();
+  var anago_eel = $('input[name=anago_eel]').val();
   var cart = {
     tamago_egg, 
     california_roll,
+    futomaki_roll,
+    tekka_roll,
+    ikura_roe,
+    uni_sea,
+    sake_salmon,
+    saba_mackerel,
+    maguro_tuna,
+    hamachi_yellowtail,
+    ebi_shrimp,
+    anago_eel
   }
   
   console.log(cart);
