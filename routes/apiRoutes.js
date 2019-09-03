@@ -24,21 +24,21 @@ module.exports = function (app) {
       });
   })
  //change order from not fulfilled to fulfilled
-  // app.put("api/orders/:id", function (req, res) {
-  //   // update one of the orders
-  //   db.Order.update({
-  //     fulfilled: true
-  //   },
-  //     {
-  //       where: {
-  //         id: req.params.id
-  //       }
-  //     }
-  //   ).then(function (order) {
-  //     console.log(order)
-  //     res.json(order);
-  //   });
-  // });
+  app.put("api/orders/:id", function (req, res) {
+    // update one of the orders
+    db.Order.update({
+      fulfilled: true
+    },
+      {
+        where: {
+          id: req.params.id
+        }
+      }
+    ).then(function (order) {
+      console.log(order)
+      res.json(order);
+    });
+  });
 
 //deletes order 
   // app.delete("/api/orders/:id", (req, res) => {
@@ -63,19 +63,17 @@ module.exports = function (app) {
     });
   });
 
-
-  
-  app.get("/api/orders/:id"), function (req, res) {
-    console.log("test")
-    db.Order.findOne({
-      where: {
-        id: req.params.id
-      }
-    }).then(function (dbOrderId) {
-      console.log(dbOrderId.id)
-      res.json(dbOrderId.id)
-    })
-  }
+  // app.get("/api/orders/:id"), function (req, res) {
+  //   console.log("test")
+  //   db.Order.findOne({
+  //     where: {
+  //       id: req.params.id
+  //     }
+  //   }).then(function (dbOrderId) {
+  //     console.log(dbOrderId)
+  //     res.json(dbOrderId)
+  //   })
+  // }
 
   app.get("/api/users", function (req, res) {
     db.User.findAll({}).then(function (dbUsers) {

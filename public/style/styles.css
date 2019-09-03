@@ -43,7 +43,7 @@ footer {margin-bottom:0;
 
 #order-card {padding:20px;
   border-style:solid;
-  
+
   margin-left:20px;}
 
 
@@ -103,10 +103,12 @@ footer {margin-bottom:0;
  font-weight:bolder;
   }
 
-  .btn {background-color:white;
+  .btn {background-color:wheat;
         color:black;
         border-style:none;
       }
 
-  .btn:hover:{cursor:pointer;
+  .btn:hover{cursor:pointer;
               display:hidden;}
+
+  body{background-color:wheat;}
