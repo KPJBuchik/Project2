@@ -1,6 +1,7 @@
 //Dependencies
 var express = require("express");
 var bodyParser = require("body-parser");
+var db = require("./models");
 
 //Define port the server will be listening on.
 var PORT = process.env.PORT || 3000;
@@ -12,6 +13,10 @@ app.use(express.static("public"));
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
+require("./routes/apiRoutes.js")(app);
+require("./routes/htmlRoutes.js")(app);
+
 
 //Set Handlebars.
 var exphbs = require("express-handlebars");
@@ -25,6 +30,9 @@ app.set("view engine", "handlebars");
 // app.use(routes);
 
 //App is listening...
-app.listen(PORT, function() {
-  console.log("Server listening on: http://localhost:" + PORT);
+db.sequelize.sync({ force: true }).then(function() {
+  app.listen(PORT, function() {
+    console.log("App listening on PORT " + PORT);
+  });
 });
+ 
