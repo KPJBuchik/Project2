@@ -3,39 +3,37 @@ $(function () {
   $(".change-fulfilled").on("click", function (event) {
     var id = $(this).data("id");
     var newFulfill = $(this).data("newfulfill");
-
+    console.log(this)
     var newFulfillState = {
       fulfilled: true
     };
 
-
-
-    // Send the PUT request.
-    $.ajax("/api/orders/" + id, {
-      type: "PUT",
-      data: newFulfillState
-    }).then(
-      function () {
-        console.log("changed fulfilled to", newFulfill);
-        location.reload();
-      }
-    );
-
+    $.ajax({
+      method: "PUT",
+      data: newFulfillState,
+      url:"api/orders/" + id
+    }).then(function(){
+      console.log("changed order to" +newFulfill)
+    location.reload()
+  })
+    console.log(newFulfillState)
   });
 
 
 
   $(".delete-order").on("click", function (event) {
-    var id = $(this).data("id");
+        var id = $(this).data("id");
 
-    $.ajax("/api/orders/" + id, {
-      type: "DELETE"
-    }).then(
-      function () {
-        console.log("deleted order", id);
-        location.reload();
-      }
-    );
-  });
+        $.ajax({
+          method: "DELETE",
+          url: "api/orders/" + id
+        }).then(function(data) {
+
+
+          location.reload();
+        });
+        console.log("hey"+id)
+
+});
 
 });

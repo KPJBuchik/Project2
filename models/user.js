@@ -7,12 +7,12 @@ module.exports = function (sequelize, DataTypes) {
   });
 
 
-User.associate = function (models) {
-  models.User.hasMany(models.Order, {
-    onDelete: "cascade"
-  });
+  // User.associate = function (models) {
+  //   models.User.hasMany(models.Order, {
+  //     onDelete: "cascade"
+  //   });
 
-};
-return User;
+  // };
+  return User;
 
 };

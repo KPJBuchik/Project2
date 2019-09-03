@@ -4,16 +4,16 @@ module.exports = function (sequelize, DataTypes) {
         name: DataTypes.STRING,
         fulfilled:DataTypes.BOOLEAN
     });
-    Order.associate = function (models) {
-        Order.hasMany(models.Item);
+    // Order.associate = function (models) {
+    //     Order.hasMany(models.Item);
         
     
-        Order.belongsTo(models.User, {
-            foreignKey: {
-                allowNull: false
-            }
-        });
-    };
+    //     Order.belongsTo(models.User, {
+    //         foreignKey: {
+    //             allowNull: false
+    //         }
+    // //     });
+    // };
     return Order
 }
 

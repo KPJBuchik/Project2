@@ -5,12 +5,12 @@ module.exports = function (sequelize, DataTypes) {
         item_price:DataTypes.INTEGER
         
     });
-    Items.associate = function (models) {
-        Items.belongsTo(models.Order, {
-            foreignKey: {
-                allowNull: false
-            }
-        });
-    };
+    // Items.associate = function (models) {
+    //     Items.belongsTo(models.Order, {
+    //         foreignKey: {
+    //             allowNull: false
+    //         }
+    //     });
+    // };
     return Items
 }
