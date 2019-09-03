@@ -18,7 +18,6 @@ var menu =
 //JQuery that triggers when the submit button is press.
 $("#submit").on("click", function(e){
   e.preventDefault();
-  console.log("order submitted");
   //Variables which contains the items name and quantity.
   var tamago_egg = $('input[name=tamago_egg]').val();
   var california_roll = $('input[name=california_roll]').val();
@@ -51,20 +50,21 @@ $("#submit").on("click", function(e){
   //Variable that contains the past object turn into an array and the keys and values as single arrays inside the big array. Using the console.log below is recommended to understand.
   var items = Object.entries(cart);
   // console.log(items)
+  generateList(items)
   //Variable that keeps track of the total price of the customers order.
   var total = 0;
   //Loop in which the quantity and name of the items is use to be multiply with the items prices in the menu object and so giving us the total of the order.
   for (var i = 0; i < items.length; i++){
     //   console.log(items[i]);
       var item = items[i][0];
+      // console.log(item);
       var quantity = items[i][1];
       var itemTotal = menu[item] * parseInt(quantity);
       total = total + itemTotal;
       // console.log(itemTotal);
-      // console.log(item);
   }
-
-  alert("Order submitted! Your total is: " + total);
+  
+  $("#totalPrice").html("Total: $" + total);
 
 });
 
@@ -107,6 +107,28 @@ jQuery(document).ready(function(){
   });
 });
 
+
+function generateList(items, menu) {
+  
+  let div = $("<div>").appendTo("#itemDisplay")
+
+  for (var i =0; i < items.length; i++) {
+    let test = items[i][1];
+    if (test > 0) {
+      let para = $("<p>").append("- " + items[i][0]);
+      para.appendTo(div);
+      var cList = $('<ul>');
+      cList.appendTo(div);
+      var li = $('<li/>')
+        .addClass('ui-menu-item')
+        .attr('role', 'menuitem')
+        .append("Quantity: " + items[i][1])
+      li.appendTo(cList);  
+      
+    };
+  };
+
+};
 
 
 
