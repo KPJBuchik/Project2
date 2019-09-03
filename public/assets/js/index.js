@@ -51,7 +51,7 @@ $("#submit").on("click", function(e){
   //Variable that contains the past object turn into an array and the keys and values as single arrays inside the big array. Using the console.log below is recommended to understand.
   var items = Object.entries(cart);
   // console.log(items)
-  //Variable that keeps track of the total of the customers orders.
+  //Variable that keeps track of the total price of the customers order.
   var total = 0;
   //Loop in which the quantity and name of the items is use to be multiply with the items prices in the menu object and so giving us the total of the order.
   for (var i = 0; i < items.length; i++){
