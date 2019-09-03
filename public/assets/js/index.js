@@ -1,3 +1,4 @@
+//Object that contains the items names as keys and the items price as values.
 var menu = 
   {
     tamago_egg: 10,
@@ -14,10 +15,11 @@ var menu =
     anago_eel: 10,
   };
 
-
+//JQuery that triggers when the submit button is press.
 $("#submit").on("click", function(e){
   e.preventDefault();
   console.log("order submitted");
+  //Variables which contains the items name and quantity.
   var tamago_egg = $('input[name=tamago_egg]').val();
   var california_roll = $('input[name=california_roll]').val();
   var futomaki_roll = $('input[name=futomaki_roll]').val();
@@ -30,6 +32,7 @@ $("#submit").on("click", function(e){
   var hamachi_yellowtail = $('input[name=hamachi_yellowtail]').val();
   var ebi_shrimp = $('input[name=ebi_shrimp]').val();
   var anago_eel = $('input[name=anago_eel]').val();
+  //Object that stores the items names and quantity threw the past variables.
   var cart = {
     tamago_egg, 
     california_roll,
@@ -43,26 +46,26 @@ $("#submit").on("click", function(e){
     hamachi_yellowtail,
     ebi_shrimp,
     anago_eel
-  }
-  
+  };
+  // console.log(cart);
+  //Variable that contains the past object turn into an array and the keys and values as single arrays inside the big array. Using the console.log below is recommended to understand.
   var items = Object.entries(cart);
-  items
-  
+  // console.log(items)
+  //Variable that keeps track of the total of the customers orders.
   var total = 0;
-
+  //Loop in which the quantity and name of the items is use to be multiply with the items prices in the menu object and so giving us the total of the order.
   for (var i = 0; i < items.length; i++){
     //   console.log(items[i]);
       var item = items[i][0];
       var quantity = items[i][1];
       var itemTotal = menu[item] * parseInt(quantity);
       total = total + itemTotal;
-      // console.log(itemTotal)
+      // console.log(itemTotal);
       // console.log(item);
   }
 
-  alert(total);
-  
-  console.log(cart);
+  alert("Order submitted! Your total is: " + total);
+
 });
 
 //This JQuery is to make the quantity buttons work.
@@ -108,16 +111,4 @@ jQuery(document).ready(function(){
 
 
 
-// var cart = {
-//   hamachi_roll: 2,
-//   california_roll: 3
-// };
-
-// var results = Object.values(cart);
-// results
-// var total = results.reduce((a, b) => a + b)
-// total
-
-// var times10 = results.map(item => item * 10);
-// times10
 
