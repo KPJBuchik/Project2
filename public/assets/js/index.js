@@ -45,6 +45,23 @@ $("#submit").on("click", function(e){
     anago_eel
   }
   
+  var items = Object.entries(cart);
+  items
+  
+  var total = 0;
+
+  for (var i = 0; i < items.length; i++){
+    //   console.log(items[i]);
+      var item = items[i][0];
+      var quantity = items[i][1];
+      var itemTotal = menu[item] * parseInt(quantity);
+      total = total + itemTotal;
+      // console.log(itemTotal)
+      // console.log(item);
+  }
+
+  alert(total);
+  
   console.log(cart);
 });
 
