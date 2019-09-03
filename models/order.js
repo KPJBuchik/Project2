@@ -5,18 +5,19 @@ module.exports = function (sequelize, DataTypes) {
         fulfilled:{
             type:DataTypes.BOOLEAN,
             defaultValue:false
-        }
+        },
+
     });
-    // Order.associate = function (models) {
-    //     Order.hasMany(models.Item);
+    Order.associate = function (models) {
+        Order.hasMany(models.Item);
         
     
-    //     Order.belongsTo(models.User, {
-    //         foreignKey: {
-    //             allowNull: false
-    //         }
-    // //     });
-    // };
+        Order.belongsTo(models.User, {
+            foreignKey: {
+                allowNull: true
+            }
+        });
+    };
     return Order
 }
 

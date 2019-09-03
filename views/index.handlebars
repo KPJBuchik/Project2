@@ -1,4 +1,4 @@
-<div id="header"><a href="#"><i class="fas fa-chevron-left"></i></a>
+<div id="header"><a href="html/landing.html"><i class="fas fa-chevron-left"></i></a>
 </div>
 
 
@@ -41,7 +41,8 @@
     {{#unless fulfilled}}
 
     <div id="f-d-buttons">
-      {{> orders/order-block fulfilled=false}}{{> orders/order-delete fulfilled=false}}
+      {{> orders/order-block fulfilled=false id=id}}
+      {{> orders/order-delete fulfilled=false id=id}}
     </div>
     {{/unless}}
     {{/each}}
@@ -87,7 +88,7 @@
     {{#if this.fulfilled}}
 
     <div id="f-d-buttons">
-      {{> orders/order-block fulfilled=false}}{{> orders/order-delete fulfilled=false}}
+      {{> orders/order-delete fulfilled=true id=id}}
     </div>
     {{/if}}
     {{/each}}

@@ -24,7 +24,7 @@ module.exports = function (app) {
       });
   })
  //change order from not fulfilled to fulfilled
-  app.put("api/orders/:id", function (req, res) {
+  app.put("/api/orders/:id", function (req, res) {
     // update one of the orders
     db.Order.update({
       fulfilled: true
@@ -41,17 +41,17 @@ module.exports = function (app) {
   });
 
 //deletes order 
-  // app.delete("/api/orders/:id", (req, res) => {
-  //   const id = req.params.id;
-  //   db.Order.destroy({
-  //     where: {
-  //       id: id
-  //     }
-  //   }).then((deletedOrder) => {
-  //     res.json(deletedOrder);
-  //   });
+  app.delete("/api/orders/:id", (req, res) => {
+    const id = req.params.id;
+    db.Order.destroy({
+      where: {
+        id: id
+      }
+    }).then((deletedOrder) => {
+      res.json(deletedOrder);
+    });
 
-  // });
+  });
 
 
 

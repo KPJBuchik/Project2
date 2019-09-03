@@ -1,5 +1,13 @@
 $(function () {
 
+
+
+
+
+
+
+  
+
   $(".change-fulfilled").on("click", function (event) {
     var id = $(this).data("id");
     var newFulfill = $(this).data("newfulfill");
@@ -11,7 +19,7 @@ $(function () {
     $.ajax({
       method: "PUT",
       data: newFulfillState,
-      url:"api/orders/" + id
+      url:"/api/orders/" + id
     }).then(function(){
       console.log("changed order to" +newFulfill)
     location.reload()
