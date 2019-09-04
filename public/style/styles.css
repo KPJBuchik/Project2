@@ -10,7 +10,7 @@ body {
 }
 
 .landingBody {
-  background-image: url(../style/images/landing.jpg);
+  background-image: url(/images/landing.jpg);
   background-size: cover;
   text-align: center;
   background-repeat: no-repeat;
