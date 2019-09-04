@@ -8,7 +8,7 @@ const logger = require("morgan");
 
 var db = require("./models");
 var app = express();
-var PORT = process.env.PORT || 3000;
+var PORT = process.env.PORT || 8050;
 
 // Middleware
 app.use(logger("dev"));
