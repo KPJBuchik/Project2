@@ -9,7 +9,7 @@ module.exports = function (sequelize, DataTypes) {
     Items.associate = function (models) {
         Items.belongsTo(models.Order, {
             foreignKey: {
-                allowNull: true
+                allowNull: false
             }
         });
     };

@@ -14,7 +14,7 @@ module.exports = function (sequelize, DataTypes) {
     
         Order.belongsTo(models.User, {
             foreignKey: {
-                allowNull: true
+                allowNull: false
             }
         });
     };
