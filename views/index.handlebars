@@ -1,33 +1,114 @@
-<div id="home">
-  <div class="container">
-    <div class="row">
-      <div class="col-8 offset-2">
-        <h1>{{msg}}</h1>
-        <h2>This is our Home Page!</h2>
-        <form class="clearfix mb-4" action="POST">
-          <div class="form-group">
-            <label for="example-text">Example Text</label>
-            <input type="text" id="example-text" class="form-control" aria-describedby="example-text" placeholder="Enter Example Text">
+<div id="header"><a href="html/landing.html"><i class="fas fa-chevron-left"></i></a>
+</div>
+
+
+<h1 id="orderq">Order Queue</h1>
+
+<div class="row">
+  <div class="column">
+    {{#each order}}
+    {{#unless fulfilled}}
+    <div id="order-card"><span class="categories">Order ID:</span> {{id}}
+      <div>
+       <span class="categories"> Name on Order:</span> {{name}}
+      </div>
+      <div>
+       <span class="categories"> Total Price: </span> {{total_price}}
+      </div>
+      <div>
+        <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false"
+          aria-controls="collapseExample">
+          v Order Items v
+        </a>
+        <div class="collapse" id="collapseExample">
+          <div class="card card-body">
+            Items:
           </div>
-          <div class="form-group">
-            <label for="example-description">Example Description</label>
-            <textarea class="form-control" id="example-description" aria-describedby="example-description" placeholder="Enter Example Description"></textarea>
-          </div>
-          <button id="submit" class="btn btn-primary float-right">Submit</button>
-        </form>
-        <h3>Examples:</h3>
-        <ul id="example-list" class="list-group">
-          {{#each examples}}
-          <li data-id="{{this.id}}" class="list-group-item">
-            <a href="example/{{this.id}}">{{this.text}}</a>
-            <button class="btn btn-danger float-right delete">ｘ</button>
-          </li>
-          {{/each}}
-        </ul>
+        </div>
+
+
       </div>
     </div>
+    <div>
+
+    </div>
+    {{/unless}}
+    {{/each}}
+
+  </div>
+  <div class="column">
+    {{#each order}}
+    {{#unless fulfilled}}
+
+    <div id="f-d-buttons">
+      {{> orders/order-block fulfilled=false id=id}}
+      {{> orders/order-delete fulfilled=false id=id}}
+    </div>
+    {{/unless}}
+    {{/each}}
+  </div>
+</div>
+<hr>
+<h1 id="fulfilled">Past Orders</h1>
+
+<div class="row">
+  <div class="column">
+    {{#each order}}
+    {{#if this.fulfilled}}
+    <div id="order-card"><span class="categories">Order ID:</span> {{this.id}}
+      <div>
+       <span class="categories"> Name on Order:</span> {{this.name}}
+      </div>
+      <div>
+       <span class="categories"> Total Price: </span> {{this.total_price}}
+      </div>
+      <div>
+        <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false"
+          aria-controls="collapseExample">
+          v Order Items v
+        </a>
+        <div class="collapse" id="collapseExample">
+          <div class="card card-body">
+            Items:
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+    <div>
+
+    </div>
+    {{/if}}
+    {{/each}}
+
+  </div>
+  <div class="column">
+    {{#each order}}
+    {{#if this.fulfilled}}
+
+    <div id="f-d-buttons">
+      {{> orders/order-delete fulfilled=true id=id}}
+    </div>
+    {{/if}}
+    {{/each}}
   </div>
 </div>
 
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="/js/index.js"></script>
+
+
+
+  <footer>Footer</footer>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+       <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+
+  <script src="/js/index.js"></script>

@@ -50,7 +50,7 @@ $("#submit").on("click", function(e){
   //Variable that contains the past object turn into an array and the keys and values as single arrays inside the big array. Using the console.log below is recommended to understand.
   var items = Object.entries(cart);
   // console.log(items)
-  generateList(items)
+  generateList(items, menu);
   //Variable that keeps track of the total price of the customers order.
   var total = 0;
   //Loop in which the quantity and name of the items is use to be multiply with the items prices in the menu object and so giving us the total of the order.
@@ -107,12 +107,14 @@ jQuery(document).ready(function(){
   });
 });
 
-
+//Function which dynamically generate html into the menu modul for the items, quantity and price.
 function generateList(items, menu) {
   
   let div = $("<div>").appendTo("#itemDisplay")
+  
 
   for (var i =0; i < items.length; i++) {
+    var item = items[i][0];
     let test = items[i][1];
     if (test > 0) {
       let para = $("<p>").append("- " + items[i][0]);
@@ -124,6 +126,11 @@ function generateList(items, menu) {
         .attr('role', 'menuitem')
         .append("Quantity: " + items[i][1])
       li.appendTo(cList);  
+      var li1 = $('<li/>')
+        .addClass('ui-menu-item')
+        .attr('role', 'menuitem')
+        .append("Price: " + menu[item])
+      li1.appendTo(cList);  
       
     };
   };

@@ -1,24 +1,95 @@
 var db = require("../models");
 
-module.exports = function(app) {
-  // Get all examples
-  app.get("/api/examples", function(req, res) {
-    db.Example.findAll({}).then(function(dbExamples) {
-      res.json(dbExamples);
+
+module.exports = function (app) {
+
+
+//get order table on manager view page
+  app.get("/orders", function (req, res) {
+    db.Order.findAll()
+      .then(function (dbOrder) {
+        console.log("hey" + dbOrder);
+        var hbsObject = { order: dbOrder };
+        return res.render("index", hbsObject);
+      });
+  })
+//get user table on manager view page
+  app.get("/orders", function (req, res) {
+    db.User.findAll()
+      .then(function (dbUser) {
+        console.log("hey" + dbUser);
+
+        var hbsObject = { user: dbUser };
+        return res.render("index", hbsObject);
+      });
+  })
+ //change order from not fulfilled to fulfilled
+  app.put("/api/orders/:id", function (req, res) {
+    // update one of the orders
+    db.Order.update({
+      fulfilled: true
+    },
+      {
+        where: {
+          id: req.params.id
+        }
+      }
+    ).then(function (order) {
+      console.log(order)
+      res.json(order);
     });
   });
 
-  // Create a new example
-  app.post("/api/examples", function(req, res) {
-    db.Example.create(req.body).then(function(dbExample) {
-      res.json(dbExample);
+//deletes order 
+  app.delete("/api/orders/:id", (req, res) => {
+    const id = req.params.id;
+    db.Order.destroy({
+      where: {
+        id: id
+      }
+    }).then((deletedOrder) => {
+      res.json(deletedOrder);
+    });
+
+  });
+
+
+
+
+  // Get all tables
+  app.get("/api/orders", function (req, res) {
+    db.Order.findAll({}).then(function (dbOrders) {
+      res.json(dbOrders)
     });
   });
 
-  // Delete an example by id
-  app.delete("/api/examples/:id", function(req, res) {
-    db.Example.destroy({ where: { id: req.params.id } }).then(function(dbExample) {
-      res.json(dbExample);
+  // app.get("/api/orders/:id"), function (req, res) {
+  //   console.log("test")
+  //   db.Order.findOne({
+  //     where: {
+  //       id: req.params.id
+  //     }
+  //   }).then(function (dbOrderId) {
+  //     console.log(dbOrderId)
+  //     res.json(dbOrderId)
+  //   })
+  // }
+
+  app.get("/api/users", function (req, res) {
+    db.User.findAll({}).then(function (dbUsers) {
+      res.json(dbUsers);
     });
   });
-};
+
+  app.get("/api/items", function (req, res) {
+    db.Item.findAll({}).then(function (dbItems) {
+      res.json(dbItems)
+    });
+  });
+
+
+
+
+
+
+}
