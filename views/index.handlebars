@@ -1,4 +1,4 @@
-<div id="header"><a href="html/landing.html"><i class="fas fa-chevron-left"></i></a>
+<div id="header"><a href="/"><i class="fas fa-chevron-left"></i></a>
 </div>
 
 
@@ -24,7 +24,10 @@
         <div class="collapse" id="collapseExample">
           <div class="card card-body">
             {{#each Items}}
+            Item Name: {{item_name}}
+            <br>
             quantitiy: {{quantity}}
+            <br>
             price: {{item_price}}
 
             {{/each}}
@@ -47,7 +50,6 @@
 
     <div id="f-d-buttons">
       {{> orders/order-block fulfilled=false id=id}}
-      {{> orders/order-delete fulfilled=false id=id}}
     </div>
     {{/unless}}
     {{/each}}
@@ -75,8 +77,11 @@
         <div class="collapse" id="collapseExample">
           <div class="card card-body">
             {{#each Items}}
-            quantitiy: {{quantity}}
-            price: {{item_price}}
+            Item Name: {{item_name}}
+            <br>
+            Quantitiy: {{quantity}}
+            <br>
+            Price: {{item_price}}
 
             {{/each}}
           </div>
@@ -97,7 +102,6 @@
     {{#if this.fulfilled}}
 
     <div id="f-d-buttons">
-      {{> orders/order-delete fulfilled=true id=id}}
     </div>
     {{/if}}
     {{/each}}

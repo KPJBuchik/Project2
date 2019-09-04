@@ -1,6 +1,8 @@
 
 var db = require("../models");
 var path = require("path");
+var isAuthenticated = require("../config/middleware/isAuthenticated");
+
 
 module.exports = function(app) {
 
@@ -15,8 +17,9 @@ module.exports = function(app) {
   });
 
 
+
 //get order table on manager view page
-app.get("/orders", function (req, res) {
+app.get("/orders", isAuthenticated, function (req, res) {
   db.Order.findAll({
     include: [db.Item]
   })
