@@ -2,6 +2,8 @@
 var express = require("express");
 var bodyParser = require("body-parser");
 var db = require("./models");
+var session = require("express-session");
+var passport = require("./config/passport");
 
 //Define port the server will be listening on.
 var PORT = process.env.PORT || 3000;
@@ -13,6 +15,10 @@ app.use(express.static("public"));
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
+app.use(session({secret: "keyboard cat", resave: true, saveUninitialized: true}));
+app.use(passport.initialize());
+app.use(passport.session());
 
 require("./routes/apiRoutes.js")(app);
 require("./routes/htmlRoutes.js")(app);
@@ -30,7 +36,7 @@ app.set("view engine", "handlebars");
 // app.use(routes);
 
 //App is listening...
-db.sequelize.sync({ force: true }).then(function() {
+db.sequelize.sync({ force: false }).then(function() {
   app.listen(PORT, function() {
     console.log("App listening on PORT " + PORT);
   });

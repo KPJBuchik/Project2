@@ -11,7 +11,7 @@ module.exports = function(app) {
   app.get("/", function(req, res) {
     // If the user already has an account send them to the members page
     if (req.user) {
-      res.redirect("/members"); //This will be the landing for logged in users
+      res.redirect("/"); //This will be the landing for logged in users
     }
     res.sendFile(path.join(__dirname, "../public/landing.html"));
   });
@@ -19,7 +19,7 @@ module.exports = function(app) {
   app.get("/menu", function(req, res) {
     // If the user already has an account send them to the members page
     if (req.user) {
-      res.redirect("/members");
+      res.redirect("/menu");
     }
     res.sendFile(path.join(__dirname, "/menu.html"));
   });

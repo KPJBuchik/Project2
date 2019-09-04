@@ -9,10 +9,10 @@
     <title>PokeTron Sushi</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
         integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
         crossorigin="anonymous"></script>
@@ -24,12 +24,12 @@
 
     <body class="landingBody">
 
-        <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Manager
-            Login</button>
+        <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Sign Up
+            </button>
 
         <div id="id01" class="modal">
 
-            <form class="modal-content animate" action="/">
+            <form class="modal-content animate signup" action="/">
                 <div class="imgcontainer">
                     <span onclick="document.getElementById('id01').style.display='none'" class="close"
                         title="Close Modal">&times;</span>
@@ -42,6 +42,9 @@
 
                     <label for="pnumber"><b>Password</b></label>
                     <input type="password" id="password-input" placeholder="Enter Password" name="pnumber" required>
+
+                    <label for="pnumber"><b>Role</b></label>
+                    <input type="text" id="role-input" placeholder="Enter Role" name="role" required>
 
                     <button type="submit" class="signup">Login</button>
                     <!-- <label>
@@ -81,7 +84,7 @@
         <div id="id02" class="modal">
 
             <!-- <form class="modal-content animate" action="/action_page.php"> -->
-                <form class="modal-content animate" action="/">
+                <form class="modal-content animate login" action="/">
                 <div class="imgcontainer">
                     <span onclick="document.getElementById('id02').style.display='none'" class="close"
                         title="Close Modal">&times;</span>
@@ -90,10 +93,10 @@
 
                 <div class="container">
                     <label for="custname"><b>Email</b></label>
-                    <input type="text" placeholder="Enter Email" name="custname" required>
+                    <input type="text" id="login-email" placeholder="Enter Email" name="custname" required>
 
                     <label for="pnumber"><b>Password</b></label>
-                    <input type="password" placeholder="Enter Password" name="pnumber" required>
+                    <input id="login-password" type="password" placeholder="Enter Password" name="pnumber" required>
 
                     <button type="submit">Login</button>
                     <!-- <label>
@@ -124,6 +127,7 @@
 
 
         <script src="js/signup.js"></script>
+        <script src="js/login.js"></script>
 
         <img class="sushilogo" src="images/sushilogo.gif" alt="SushiTron Logo"
             style="width:128px;height:128px;">
