@@ -15,6 +15,49 @@ var menu =
     anago_eel: 10,
   };
 
+  $(function () {
+
+
+
+
+    $(".change-fulfilled").on("click", function (event) {
+      var id = $(this).data("id");
+      var newFulfill = $(this).data("newfulfill");
+      console.log(this)
+      var newFulfillState = {
+        fulfilled: true
+      };
+  
+      $.ajax({
+        method: "PUT",
+        data: newFulfillState,
+        url: "/api/orders/" + id
+      }).then(function () {
+        console.log("changed order to" + newFulfill)
+        location.reload()
+      })
+      console.log(newFulfillState)
+    });
+  
+  
+  
+    $(".delete-order").on("click", function (event) {
+      var id = $(this).data("id");
+  
+      $.ajax({
+        method: "DELETE",
+        url: "api/orders/" + id
+      }).then(function (data) {
+  
+  
+        location.reload();
+      });
+      console.log("hey" + id)
+  
+    });
+  
+  });
+
 //JQuery that triggers when the submit button is press.
 $("#submit").on("click", function(e){
   e.preventDefault();
@@ -51,6 +94,7 @@ $("#submit").on("click", function(e){
   var items = Object.entries(cart);
   // console.log(items)
   generateList(items, menu);
+  mainObject(items, menu);
   //Variable that keeps track of the total price of the customers order.
   var total = 0;
   //Loop in which the quantity and name of the items is use to be multiply with the items prices in the menu object and so giving us the total of the order.
@@ -117,17 +161,19 @@ function generateList(items, menu) {
     var item = items[i][0];
     let test = items[i][1];
     if (test > 0) {
-      let para = $("<p>").append("- " + items[i][0]);
+      let para = $("<p>")
+      .addClass('ui-menu-item')
+      .append("- " + items[i][0])
       para.appendTo(div);
       var cList = $('<ul>');
       cList.appendTo(div);
       var li = $('<li/>')
-        .addClass('ui-menu-item')
+        .addClass('ui-menu-quantity')
         .attr('role', 'menuitem')
         .append("Quantity: " + items[i][1])
       li.appendTo(cList);  
       var li1 = $('<li/>')
-        .addClass('ui-menu-item')
+        .addClass('ui-menu-price')
         .attr('role', 'menuitem')
         .append("Price: " + menu[item])
       li1.appendTo(cList);  
@@ -136,6 +182,36 @@ function generateList(items, menu) {
   };
 
 };
+
+function mainObject(items, menu){
+  var newItem = [];
+  for (var i =0; i < items.length; i++){
+    var item = items[i][0];
+    let test = items[i][1];
+    if (test > 0){
+    const addingItem = {
+      name: items[i][0],
+      quantity:items[i][1],
+      price: menu[item]
+    };
+
+      newItem.push(addingItem);
+    };
+
+  };
+  // console.log(newItem);
+  return newItem;
+};
+
+$("#completeButton").on("click", function(e, item, menu){
+  e.preventDefault();
+  $.post("/api/items", newItem)
+  // on success, run this callback
+  .then(function(data) {
+    // log the data we found
+    console.log(data);
+  });
+});
 
 
 

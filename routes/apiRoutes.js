@@ -87,6 +87,19 @@ module.exports = function (app) {
     });
   });
 
+  
+  app.post("/api/items", function (req, res) {
+    console.log(req.body);
+    db.Post.create({
+      name: items[i][0],
+      quantity: items[i][1],
+      price: menu[item]
+    })
+      .then(function(dbPost) {
+        res.json(dbPost);
+      });
+  });
+
 
 
 

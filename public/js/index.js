@@ -1,21 +1,22 @@
-$(function () {
-
-  //Object that contains the items names as keys and the items price as values.
+//Object that contains the items names as keys and the items price as values.
 var menu = 
 {
-  tamago_egg: 10,
-  california_roll: 10,
-  futomaki_roll: 10,
-  tekka_roll: 10,
-  ikura_roe: 10,
-  uni_sea: 10,
-  sake_salmon: 10,
-  saba_mackerel: 10,
-  maguro_tuna: 10,
-  hamachi_yellowtail: 10,
-  ebi_shrimp: 10,
-  anago_eel: 10,
+tamago_egg: 10,
+california_roll: 10,
+futomaki_roll: 10,
+tekka_roll: 10,
+ikura_roe: 10,
+uni_sea: 10,
+sake_salmon: 10,
+saba_mackerel: 10,
+maguro_tuna: 10,
+hamachi_yellowtail: 10,
+ebi_shrimp: 10,
+anago_eel: 10,
 };
+
+$(function () {
+
 
 
 
@@ -94,7 +95,7 @@ $("#submit").on("click", function(e){
   //Variable that contains the past object turn into an array and the keys and values as single arrays inside the big array. Using the console.log below is recommended to understand.
   var items = Object.entries(cart);
   // console.log(items)
-  generateList(items)
+  generateList(items, menu);
   //Variable that keeps track of the total price of the customers order.
   var total = 0;
   //Loop in which the quantity and name of the items is use to be multiply with the items prices in the menu object and so giving us the total of the order.
@@ -109,7 +110,7 @@ $("#submit").on("click", function(e){
   }
   
   $("#totalPrice").html("Total: $" + total);
-
+  
 });
 
 //This JQuery is to make the quantity buttons work.
@@ -151,26 +152,65 @@ jQuery(document).ready(function(){
   });
 });
 
-
+//Function which dynamically generate html into the menu modul for the items, quantity and price.
 function generateList(items, menu) {
   
   let div = $("<div>").appendTo("#itemDisplay")
+  
 
   for (var i =0; i < items.length; i++) {
+    var item = items[i][0];
     let test = items[i][1];
     if (test > 0) {
-      let para = $("<p>").append("- " + items[i][0]);
+      let para = $("<p>")
+      .addClass('ui-menu-item')
+      .append("- " + items[i][0])
       para.appendTo(div);
       var cList = $('<ul>');
       cList.appendTo(div);
       var li = $('<li/>')
-        .addClass('ui-menu-item')
+        .addClass('ui-menu-quantity')
         .attr('role', 'menuitem')
         .append("Quantity: " + items[i][1])
       li.appendTo(cList);  
+      var li1 = $('<li/>')
+        .addClass('ui-menu-price')
+        .attr('role', 'menuitem')
+        .append("Price: " + menu[item])
+      li1.appendTo(cList);  
       
     };
   };
 
 };
+
+
+function mainObject(items, menu){
+  var newItem = [];
+  for (var i =0; i < items.length; i++){
+    var item = items[i][0];
+    let test = items[i][1];
+    if (test > 0){
+    const addingItem = {
+      name: items[i][0],
+      quantity: items[i][1],
+      price: menu[item]
+    };
+
+      newItem.push(addingItem);
+    };
+
+  };
+  // console.log(newItem);
+};
+
+$("#completeButton").on("click", function(e){
+  e.preventDefault();
+  $.post("/api/items", newItem)
+  // on success, run this callback
+  .then(function(data) {
+    // log the data we found
+    console.log(data);
+  });
+});
 
