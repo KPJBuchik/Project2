@@ -14,6 +14,55 @@ module.exports = function(app) {
     res.sendFile(path.join(__dirname, "../public/html/menu.html"));
   });
 
+
+//get order table on manager view page
+app.get("/orders", function (req, res) {
+  db.Order.findAll({
+    include: [db.Item]
+  })
+    .then(function (dbOrder) {
+      var hbsObject = { order: dbOrder}
+                        
+      return res.render("index", hbsObject);
+    });
+})
+//get order table on manager view page
+app.get("/api/burrito", function (req, res) {
+  db.Order.findAll({
+    include: [db.Item]
+  })
+    .then(function (dbOrder) {
+      console.log("hey" + dbOrder);
+      var hbsObject = { order: dbOrder,}
+                        
+      return res.json({order: dbOrder});
+    });
+})
+//get user table on manager view page
+// app.get("/orders", function (req, res) {
+//   db.User.findAll()
+//     .then(function (dbUser) {
+//       console.log("hey2" + dbUser);
+
+//       var hbsObject2 = { user: dbUser };
+//       return res.render("index", hbsObject2);
+//     });
+// })
+
+//get item table on manager view page
+
+// app.get("/orders", function (req, res) {
+//   db.Item.findAll()
+//     .then(function (dbItem) {
+//       console.log("hey3" + dbItem);
+
+//       var hbsObject3 = { item: dbItem};
+//       return res.render("index", hbsObject3);
+//     });
+// })
+
+
+
   // Load index page
   // app.get("/orders", function(req, res) {
   //   db.Order.findAll({}).then(function(dbOrder) {

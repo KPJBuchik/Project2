@@ -9,14 +9,15 @@ module.exports = function (sequelize, DataTypes) {
 
     });
     Order.associate = function (models) {
-        Order.hasMany(models.Item);
-        
-    
-        Order.belongsTo(models.User, {
-            foreignKey: {
-                allowNull: false
-            }
-        });
+        Order.hasMany(models.Item,{
+            onDelete: "cascade"
+        })
+
+        // Order.belongsTo(models.User, {
+        //     foreignKey: {
+        //         allowNull: false
+        //     }
+        // });
     };
     return Order
 }

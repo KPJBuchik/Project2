@@ -1,6 +1,3 @@
-$(function () {
-
-  //Object that contains the items names as keys and the items price as values.
 var menu = 
 {
   tamago_egg: 10,
@@ -16,6 +13,12 @@ var menu =
   ebi_shrimp: 10,
   anago_eel: 10,
 };
+
+
+
+$(function () {
+
+  //Object that contains the items names as keys and the items price as values.
 
 
 
@@ -45,7 +48,7 @@ var menu =
 
     $.ajax({
       method: "DELETE",
-      url: "api/orders/" + id
+      url: "/api/orders/" + id
     }).then(function (data) {
 
 
@@ -110,6 +113,7 @@ $("#submit").on("click", function(e){
   
   $("#totalPrice").html("Total: $" + total);
 
+// AJAX CALL HERE !!!!!!!!!!!!
 });
 
 //This JQuery is to make the quantity buttons work.
