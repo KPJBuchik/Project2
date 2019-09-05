@@ -16,24 +16,28 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
         integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
         crossorigin="anonymous"></script>
-    <link rel="stylesheet" type="text/css" href="style/styles2.css">
+        <link href="https://fonts.googleapis.com/css?family=Modak&display=swap" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="style/styles2.css">
 
 </head>
 
-<body>
 
     <body class="landingBody">
+            <div id="newlogo"><div id="logotext"><img src="https://fontmeme.com/permalink/190905/0412bcb08615d605b671b2f1682a2536.png" alt="pokemon-font" border="0"></div></div>
+            <div id="welcome">Hello! Welcome to Poketron: a sushi experience.  Please place your order</div>
 
-        <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Sign Up
+            <div id="buttons">
+
+        <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Register and Order
             </button>
 
         <div id="id01" class="modal">
 
-            <form class="modal-content animate signup" action="/">
+            <form class="modal-content animate" action="/">
                 <div class="imgcontainer">
                     <span onclick="document.getElementById('id01').style.display='none'" class="close"
                         title="Close Modal">&times;</span>
-                    <img src="images/sushilogo8.png" alt="Avatar" class="avatar">
+                    <img src="../style/images/sushilogo8.png" alt="Avatar" class="avatar">
                 </div>
 
                 <div class="container">
@@ -78,7 +82,7 @@
         <!-- NEXT MODAL -->
 
 
-        <button onclick="document.getElementById('id02').style.display='block'" style="width:auto;">Order Here</button>
+        <button onclick="document.getElementById('id02').style.display='block'" style="width:auto;">Manager View</button>
 
         <div id="id02" class="modal">
 
@@ -87,7 +91,7 @@
                 <div class="imgcontainer">
                     <span onclick="document.getElementById('id02').style.display='none'" class="close"
                         title="Close Modal">&times;</span>
-                    <img src="images/sushilogo8.png" alt="Avatar" class="avatar">
+                    <img src="../style/images/sushilogo8.png" alt="Avatar" class="avatar">
                 </div>
 
                 <div class="container">
@@ -110,7 +114,7 @@
                 </div>
             </form>
         </div>
-
+        </div>
 
         <script>
             // Get the modal

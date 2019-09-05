@@ -9,17 +9,27 @@
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"  crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="../style/styles.css" type="text/css" />
+    <script src="https://kit.fontawesome.com/78f23082a5.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Modak&display=swap" rel="stylesheet">
 
     <title>Menu</title>
+    <link rel="stylesheet" href="../style/styles.css" type="text/css" />
 
 </head>
 <body>
-    <div id="realSushi">d</div>
-    <h1 id="title1">Menu</h1>
-    <form id="menuform">
+        
+
+    <div id="realsushi"><a href="/"><i class="fas fa-chevron-left"></i></a></div>
+    
+    <h1 class="title1">Menu</h1>
+<div id="menuform">
+    <form>
 
 
+        <div class="form-group myfood">
+            <strong><p>Order Name</p></strong>
+            <input type='text' id='order-name' class='qty' />
+        </div>
         <div class="form-group myfood">
             <strong><p>Order Name</p></strong>
             <input type='text' id='order-name' class='qty' />
@@ -157,9 +167,11 @@
             </div>
             
             
-            <input id="submit" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" type="submit" value="Add to order">
+            <input id="submit" class="btn btn-primary addto" data-toggle="modal" data-target="#exampleModal" type="submit" value="Add to order">
               
     </form>
+
+</div>
     <!-- Model that appears after pressing the submit button -->
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -182,7 +194,7 @@
         </div>
       </div>
 
-
+    </div>
 
     <script src="../js/index.js"></script>
 </body>

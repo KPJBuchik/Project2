@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 
+=======
+>>>>>>> kevin
 $(function () {
   var menu = {
     tamago_egg: 10,
@@ -12,13 +15,16 @@ $(function () {
     maguro_tuna: 10,
     hamachi_yellowtail: 10,
     ebi_shrimp: 10,
+<<<<<<< HEAD
     anago_eel: 10,
+=======
+    anago_eel: 10
+>>>>>>> kevin
   };
   var newItem = [];
   $(".change-fulfilled").on("click", function (event) {
     var id = $(this).data("id");
     var newFulfill = $(this).data("newfulfill");
-    console.log(this)
     var newFulfillState = {
       fulfilled: true
     };
@@ -28,13 +34,9 @@ $(function () {
       data: newFulfillState,
       url: "/api/orders/" + id
     }).then(function () {
-      console.log("changed order to" + newFulfill)
-      location.reload()
-    })
-    console.log(newFulfillState)
+      location.reload();
+    });
   });
-
-
 
   $(".delete-order").on("click", function (event) {
     var id = $(this).data("id");
@@ -43,22 +45,23 @@ $(function () {
       method: "DELETE",
       url: "/api/orders/" + id
     }).then(function (data) {
-
-
       location.reload();
     });
-    console.log("hey" + id)
-
+    console.log("hey" + id);
   });
 
+<<<<<<< HEAD
 
 
 
 
+=======
+>>>>>>> kevin
   //JQuery that triggers when the submit button is press.
   $("#submit").on("click", function (e) {
     e.preventDefault();
     //Variables which contains the items name and quantity.
+<<<<<<< HEAD
     var tamago_egg = $('input[name=tamago_egg]').val();
     var california_roll = $('input[name=california_roll]').val();
     var futomaki_roll = $('input[name=futomaki_roll]').val();
@@ -71,6 +74,20 @@ $(function () {
     var hamachi_yellowtail = $('input[name=hamachi_yellowtail]').val();
     var ebi_shrimp = $('input[name=ebi_shrimp]').val();
     var anago_eel = $('input[name=anago_eel]').val();
+=======
+    var tamago_egg = $("input[name=tamago_egg]").val();
+    var california_roll = $("input[name=california_roll]").val();
+    var futomaki_roll = $("input[name=futomaki_roll]").val();
+    var tekka_roll = $("input[name=tekka_roll]").val();
+    var ikura_roe = $("input[name=ikura_roe]").val();
+    var uni_sea = $("input[name=uni_sea]").val();
+    var sake_salmon = $("input[name=sake_salmon]").val();
+    var saba_mackerel = $("input[name=saba_mackerel]").val();
+    var maguro_tuna = $("input[name=maguro_tuna]").val();
+    var hamachi_yellowtail = $("input[name=hamachi_yellowtail]").val();
+    var ebi_shrimp = $("input[name=ebi_shrimp]").val();
+    var anago_eel = $("input[name=anago_eel]").val();
+>>>>>>> kevin
     //Object that stores the items names and quantity threw the past variables.
     var cart = {
       tamago_egg,
@@ -108,6 +125,7 @@ $(function () {
     $("#totalPrice").html("Total: $" + total);
   });
 
+<<<<<<< HEAD
   // AJAX CALL HERE !!!!!!!!!!!!
 
 
@@ -127,6 +145,24 @@ $(function () {
     } else {
       // Otherwise put a 0 there
       $('input[name=' + fieldName + ']').val(0);
+=======
+
+  // is JQuery is to make the quantity buttons work.
+  $(".qtyplus").click(function (e) {
+    // Stop acting like a button
+    e.preventDefault();
+    // Get the field name
+    var fieldName = $(this).attr("field");
+    // Get its current value
+    var currentVal = parseInt($("input[name=" + fieldName + "]").val());
+    // If is not undefined
+    if (!isNaN(currentVal)) {
+      // Increment
+      $("input[name=" + fieldName + "]").val(currentVal + 1);
+    } else {
+      // Otherwise put a 0 there
+      $("input[name=" + fieldName + "]").val(0);
+>>>>>>> kevin
     }
   });
   // This button will decrement the value till 0
@@ -134,6 +170,7 @@ $(function () {
     // Stop acting like a button
     preventDefault();
     // Get the field name
+<<<<<<< HEAD
     fieldName = $(this).attr('field');
     // Get its current value
     var currentVal = parseInt($('input[name=' + fieldName + ']').val());
@@ -145,20 +182,39 @@ $(function () {
       // Otherwise put a 0 there
       $('input[name=' + fieldName + ']').val(0);
 
+=======
+    fieldName = $(this).attr("field");
+    // Get its current value
+    var currentVal = parseInt($("input[name=" + fieldName + "]").val());
+    // If it isn't undefined or its greater than 0
+    if (!isNaN(currentVal) && currentVal > 0) {
+      // Decrement one
+      $("input[name=" + fieldName + "]").val(currentVal - 1);
+    } else {
+      // Otherwise put a 0 there
+      $("input[name=" + fieldName + "]").val(0);
+>>>>>>> kevin
     }
   });
 
   // function which dynamically generate html into the menu modul for the items, quantity and price.
   function generateList(items, menu) {
+<<<<<<< HEAD
 
     let div = $("<div>").appendTo("#itemDisplay")
 
 
+=======
+    $("#itemDisplay").empty();
+    let div = $("<div>").appendTo("#itemDisplay");
+
+>>>>>>> kevin
     for (var i = 0; i < items.length; i++) {
       var item = items[i][0];
       let test = items[i][1];
       if (test > 0) {
         let para = $("<p>")
+<<<<<<< HEAD
           .addClass('ui-menu-item')
           .append("- " + items[i][0])
         para.appendTo(div);
@@ -182,6 +238,27 @@ $(function () {
 
 
 
+=======
+          .addClass("ui-menu-item")
+          .append("- " + items[i][0]);
+        para.appendTo(div);
+        var cList = $("<ul>");
+        cList.appendTo(div);
+        var li = $("<li/>")
+          .addClass("ui-menu-quantity")
+          .attr("role", "menuitem")
+          .append("Quantity: " + items[i][1]);
+        li.appendTo(cList);
+        var li1 = $("<li/>")
+          .addClass("ui-menu-price")
+          .attr("role", "menuitem")
+          .append("Price: " + menu[item]);
+        li1.appendTo(cList);
+      }
+    }
+  }
+
+>>>>>>> kevin
   function mainObject(items, menu) {
     var tempItems = [];
     for (var i = 0; i < items.length; i++) {
@@ -191,6 +268,7 @@ $(function () {
         const addingItem = {
           name: items[i][0],
           quantity: items[i][1],
+<<<<<<< HEAD
         price: menu[item]
       };
         
@@ -219,3 +297,26 @@ $("#completeButton").on("click", function (e) {
 
 
 
+=======
+          price: menu[item]
+        };
+
+        tempItems.push(addingItem);
+      }
+    }
+    newItem = tempItems;
+  }
+
+  $("#completeButton").on("click", function (e) {
+    console.log("New Item", newItem);
+    $.post("/api/items", {
+      order_name: $("#order-name").val(),
+      items: JSON.stringify(newItem)
+    })
+      // on success, run this callback
+      .then(function (data) {
+        location.reload();
+      });
+  });
+});
+>>>>>>> kevin

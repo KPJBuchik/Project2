@@ -1,16 +1,23 @@
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    padding-top: 350px;
-  }
-  
 
-  .list-group-item {
-    line-height: 2.5;
-  }
+ #logotext{
+  padding-top: 120px;
+  
+    font-family: 'PokemonFireRedRegular'; 
+    font-weight: normal; 
+    font-style: normal; 
+ 
+
+ }
 
   #newlogo{font-family:helvetica;
-    text-align:center;
-            font-size:2em;
+    width: 300px;
+    height: 300px;
+    margin-left: -750px;
+    background: black;
+    border-radius: 50%;
+    z-index:-1;
+    opacity:.8;
+            font-size:3em;
             color:white;}
   
   .landingBody {
@@ -173,4 +180,24 @@ body {
       box-sizing: border-box;
   }
   
-  
+#buttons{ display: grid;
+  margin-right: 200px;
+  width:300px;
+}
+
+#welcome{
+opacity:.9;
+color:yellow;
+z-index:-1;
+position:absolute;
+margin-top: 125px;
+margin-left: -175px;
+font-family: 'Modak', cursive;
+font-size:1.5em;
+text-shadow: 1px 1px blue, 
+2px 2px blue, 
+3px 3px blue, 
+4px 4px blue, 
+5px 5px blue, 
+6px 6px blue;
+}
