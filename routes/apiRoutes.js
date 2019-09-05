@@ -1,66 +1,42 @@
 var db = require("../models");
 var passport = require("../config/passport");
+const isAuthenticated = require("../config/middleware/isAuthenticated");
 
-
-module.exports = function (app) {
-
-
-  //get order table on manager view page
-  app.get("/orders", function (req, res) {
-    db.Order.findAll()
-      .then(function (dbOrder) {
-        console.log("hey" + dbOrder);
-        var hbsObject = { order: dbOrder };
-        return res.render("index", hbsObject);
-      });
-  })
-  //get user table on manager view page
-  app.get("/orders", function (req, res) {
-    db.User.findAll()
-      .then(function (dbUser) {
-        console.log("hey" + dbUser);
-
-        var hbsObject = { user: dbUser };
-        return res.render("index", hbsObject);
-      });
-  })
+module.exports = function(app) {
   //change order from not fulfilled to fulfilled
-  app.put("/api/orders/:id", function (req, res) {
+  app.put("/api/orders/:id", function(req, res) {
     // update one of the orders
-    db.Order.update({
-      fulfilled: true
-    },
+    db.Order.update(
+      {
+        fulfilled: true
+      },
       {
         where: {
           id: req.params.id
         }
       }
-    ).then(function (order) {
-      console.log(order)
+    ).then(function(order) {
+      console.log(order);
       res.json(order);
     });
   });
 
-  //deletes order 
+  //deletes order
   app.delete("/api/orders/:id", (req, res) => {
     const id = req.params.id;
     db.Order.destroy({
       where: {
         id: id
       }
-    }).then((deletedOrder) => {
+    }).then(deletedOrder => {
       res.json(deletedOrder);
     });
-
   });
 
-
-
-
   // Get all tables
-  app.get("/api/orders", function (req, res) {
-    db.Order.findAll({}).then(function (dbOrders) {
-      res.json(dbOrders)
+  app.get("/api/orders", function(req, res) {
+    db.Order.findAll({}).then(function(dbOrders) {
+      res.json(dbOrders);
     });
   });
 
@@ -76,33 +52,35 @@ module.exports = function (app) {
   //   })
   // }
 
-  app.get("/api/users", function (req, res) {
-    db.User.findAll({}).then(function (dbUsers) {
+  app.get("/api/users", function(req, res) {
+    db.User.findAll({}).then(function(dbUsers) {
       res.json(dbUsers);
     });
   });
 
-  app.get("/api/items", function (req, res) {
-    db.Item.findAll({}).then(function (dbItems) {
-      res.json(dbItems)
+  app.get("/api/items", function(req, res) {
+    db.Item.findAll({}).then(function(dbItems) {
+      res.json(dbItems);
     });
   });
 
-
-  app.post("/api/items", function (req, res) {
-    console.log(req.body);
+  app.post("/api/items", isAuthenticated, function(req, res) {
     db.Order.create({
-      UserId: 1,
+      UserId: req.user.id,
       name: req.body.order_name
-    }).then(function (dbOrder) {
-      const items = JSON.parse(req.body.items).map(item => ({ quantity: item.quantity, item_name: item.name, item_price: item.price, OrderId: dbOrder.id }));
-      db.Item.bulkCreate(items)
-        .then(function (dbPost) {
-          res.json(dbPost);
-        });
-    })
+    }).then(function(dbOrder) {
+      const items = JSON.parse(req.body.items).map(item => ({
+        quantity: item.quantity,
+        item_name: item.name,
+        item_price: item.price,
+        OrderId: dbOrder.id
+      }));
+      db.Item.bulkCreate(items).then(function(dbPost) {
+        res.json(dbPost);
+      });
+    });
   });
-  app.post("/api/login", passport.authenticate("local"), function (req, res) {
+  app.post("/api/login", passport.authenticate("local"), function(req, res) {
     res.json(req.user);
     console.log(req.user);
   });
@@ -110,28 +88,29 @@ module.exports = function (app) {
   // Route for signing up a user. The user's password is automatically hashed and stored securely thanks to
   // how we configured our Sequelize User Model. If the user is created successfully, proceed to log the user in,
   // otherwise send back an error
-  app.post("/api/signup", function (req, res) {
+  app.post("/api/signup", function(req, res) {
     db.User.create({
       email: req.body.email,
       password: req.body.password,
       role: req.body.role
     })
-      .then(function () {
+      .then(function() {
         res.redirect(307, "/api/login");
       })
-      .catch(function (err) {
+      .catch(function(err) {
+        console.log(err);
         res.status(401).json(err);
       });
   });
 
   // Route for logging user out
-  app.get("/logout", function (req, res) {
+  app.get("/logout", function(req, res) {
     req.logout();
     res.redirect("/");
   });
 
   // Route for getting some data about our user to be used client side
-  app.get("/api/user_data", function (req, res) {
+  app.get("/api/user_data", function(req, res) {
     if (!req.user) {
       // The user is not logged in, send back an empty object
       res.json({});
@@ -146,7 +125,3 @@ module.exports = function (app) {
     }
   });
 };
-
-
-
-

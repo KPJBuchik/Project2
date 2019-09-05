@@ -16,20 +16,15 @@ $(document).ready(function () {
     // When the signup button is clicked, we validate the email and password are not blank
     signUpForm.on("click", function (event) {
       event.preventDefault();
-      console.log(passwordInput.val().trim())
-      console.log(emailInput.val().trim())
-      console.log(roleInput.val().trim())
       var userData = {
         email: emailInput.val().trim(),
         password: passwordInput.val().trim(),
         role: roleInput.val().trim()
       };
-      console.log(userData)
   
       if (!userData.email || !userData.password) {
         return;
       }
-      console.log(userData)
       // If we have an email and password, run the signUpUser function
   
       signUpUser(userData.email, userData.password, userData.role);
