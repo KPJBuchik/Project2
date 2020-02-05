@@ -1,13 +1,13 @@
-# POKITRON
+# POKETRON
 - Kevin
 - Pedro
 - Michael 
 
-An interactive website for a sushi restaurant that allows multiple users to place orders that are stored in a mySql database.  The website will also feature a manager view where the manager can view all user orders and the order queue.  
+An interactive website for a sushi restaurant that allows multiple users to place orders that are stored in a mySQL database.  The website will also feature a manager view where the manager can view all user orders and the order queue.  
 
 ## Pages
 - landing page
-- Menu and order online
+- Menu
 - Manager view
 
 
@@ -18,19 +18,5 @@ An interactive website for a sushi restaurant that allows multiple users to plac
 - GET and PUT routes tied to front end.  
 - create the menu form
 - user info form (name, address, credit card)
-- Authentication https://www.npmjs.com/package/passport
+- Authentication using passport https://www.npmjs.com/package/passport
 - Manager view with Read, Update, and Delete
-
-
-#Break down of tasks
-## Michael
-- front end javascript and routes
-- 
-
-## Pedro
-- handlebars and layout
-- 
-
-## Kevin
-- set up database, sequelize 
-- 
